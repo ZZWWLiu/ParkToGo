@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed 1.1 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/skel-noscript.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'mainpage/css/style-desktop.css' %}"/>
+<html>
+	<head>
+		<title>Park To Go</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="viewport" content="width=1040" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="{% static 'mainpage/js/jquery.min.js' %}"></script>
+		<script src="{% static 'mainpage/js/jquery.dropotron.min.js' %}"></script>
+		<script src="{% static 'mainpage/js/config.js' %}"></script>
+		<script src="{% static 'mainpage/js/skel.min.js' %}"></script>
+		<script src="{% static 'mainpage/js/skel-panels.min.js' %}"></script>		
+	</head>
+	<body class="left-sidebar">
+
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+						
+				<!-- Header -->
+					<div id="header" class="container">
+						
+						<!-- Logo -->
+							<h1 id="logo"><a href="#">Park To Go</a></h1>
+							<p>You deserve a great vacation.</p>
+						
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a class="fa fa-home" href="index.html"><span>Introduction</span></a></li>
+									<li>
+										<a href="" class="fa fa-bar-chart-o"><span>Dropdown</span></a>
+										<ul>
+											<li><a href="#">Plan</a></li>
+											<li><a href="#">To</a></li>
+											<li><a href="#">Go</a></li>
+											<li>
+												<a href="">Phasellus consequat</a>
+												<ul>
+													<li><a href="#">Magna phasellus</a></li>
+													<li><a href="#">Etiam dolore nisl</a></li>
+													<li><a href="#">Phasellus consequat</a></li>
+												</ul>
+											</li>
+											<li><a href="#">Veroeros feugiat</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+					</div>
+
+			</div>
+			
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+
+				<!-- Main -->
+					<div id="main" class="container">
+						<div class="row">
+						
+							<!-- Sidebar -->
+								<div id="sidebar" class="4u">
+								
+							
+											<section>
+												<form method = 'post' action="#">
+													<label>
+														<div class="row half">Activities:</div>
+														<input type="checkbox" name = 'activity' value= 'auto'>Auto Tour
+												        <input type="checkbox" name = 'activity' value= 'bike'>Biking<br>
+												        <input type="checkbox" name = 'activity' value= 'boat'>Boating
+												        <input type="checkbox" name = 'activity' value= 'camp'>Camping<br>
+												        <input type="checkbox" name = 'activity' value= 'fish'>Fishing
+												        <input type="checkbox" name = 'activity' value= 'hunt'>Hunting<br>
+													</label>
+													<label>
+														<div class="row half">Weather Condition:</div>
+														<input type="radio" name = 'weather' value= 'sunny'>Sunny
+												        <input type="radio" name = 'weather' value= 'rainly'>Rainly
+												        <input type="radio" name = 'weather' value= 'cloudly'>Cloudly
+													</label>
+
+												    <label>
+												        <div class="row half">Location</div>
+												        <select name="state" class="fa fa-bar-chart-o" > State:
+												        <option value="TX">Texas</option>
+												        <option value="CA">California</option>
+												        <option value="OH">Ohio</option>
+												        <option value="UT">Utah</option>
+												        </select>
+												        
+												    </label>
+													
+													<div class="row half">
+														<div class="12u">
+															<a href="#" class="button button-icon fa fa-envelope">Send Message</a>
+														</div>
+													</div>
+												</form>
+											</section>
+								
+									<!-- Excerpts -->
+										<section>
+											<ul class="divided">
+												<li>
+
+													<!-- Excerpt -->
+														<article class="is-excerpt">
+															<header>
+																<span class="date">May 18, 2013</span>
+																<h3><a href="#">Some Parks Introduction1</a></h3>
+															</header>
+															<p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est 
+															suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
+														</article>
+
+												</li>
+												<li>
+
+													<!-- Excerpt -->
+														<article class="is-excerpt">
+															<header>
+																<span class="date">May 15, 2013</span>
+																<h3><a href="#">Some Parks Introduction2</a></h3>
+															</header>
+															<p>blablabla bababababab.</p>
+														</article>
+
+												</li>
+											</ul>
+										</section>
+
+
+								
+									<!-- Highlights -->
+										<section>
+											<ul class="divided">
+												<li>
+
+													<!-- Highlight -->
+														<article class="is-highlight">
+															<header>
+																<h3><a href="#">Something of note</a></h3>
+															</header>
+															<a href="http://regularjane.deviantart.com/art/In-Your-Hands-356733525" class="image image-left"><img src="{% static 'mainpage/images/pic06.jpg' %}" alt="" /></a>
+															<p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam 
+															viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis 
+															convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus 
+															facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
+															<ul class="actions">
+																<li><a href="#" class="button button-icon fa fa-file">Learn More</a></li>
+															</ul>
+														</article>
+
+												</li>
+												<li>
+
+													<!-- Highlight -->
+														<article class="is-highlight">
+															<header>
+																<h3><a href="#">Something of less note</a></h3>
+															</header>
+															<a href="http://regularjane.deviantart.com/art/Pink-Rain-2009-134901803" class="image image-left"><img src="{% static 'mainpage/images/pic07.jpg' %}" alt="" /></a>
+															<p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam 
+															viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis 
+															convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus 
+															facilisis convallis. Etiam non nunc vel est suscipit convallis non id orci.</p>
+															<ul class="actions">
+																<li><a href="#" class="button button-icon fa fa-file">Learn More</a></li>
+															</ul>
+														</article>
+
+												</li>
+											</ul>
+										</section>
+								
+								</div>
+
+							<!-- Content -->
+								<div id="content" class="8u skel-cell-important">
+
+									<!-- Post -->
+										<article class="is-post">
+											<header>
+												<h2>Behold! This is the <strong>left sidebar</strong> layout<br />
+												with a sidebar on the left!</h2>
+											</header>
+											<span class="image image-full"><img src="{% static 'mainpage/images/pic04.jpg' %}" alt="" /></span>
+											<h3>Left is the opposite of right</h3>
+											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit 
+											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris 
+											sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada 
+											in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat 
+											magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros 
+											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id 
+											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet 
+											mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. 
+											Curabitur leo nibh, rutrum eu malesuada in, tristique at erat.</p>
+											<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat 
+											Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit ligula 
+											vel quam viverra sit amet mollis tortor congue. Sed quis mauris sit amet 
+											magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada in, 
+											tristique at erat. Curabitur leo nibh, rutrum eu malesuada  in, tristique 
+											at erat lorem ipsum dolor sit amet lorem ipsum sed consequat magna 
+											tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros consequat 
+											magna tempus</p>
+											<h3>Accumsan lorem ipsum veroeros</h3>
+											<p>Consequat Phasellus laoreet massa id in, tristique at erat lorem 
+											ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros 
+											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id 
+											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet 
+											mollis tortor congue. Sed quis mauris sit amet magna.</p>
+											<h3>Ligula suspcipit fusce veroeros</h3>
+											<p>Nullam dolore etiam sed massa id in, tristique at erat lorem 
+											ipsum dolor sit amet lorem ipsum sed consequat magna tempus veroeros 
+											consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id 
+											justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet 
+											mollis tortor congue. Sed quis mauris sit amet magna.</p>
+										</article>
+
+								
+								</div>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+
+				<!-- Footer -->
+					<div id="footer" class="container">
+						<header>
+							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
+						</header>
+						<div class="row">
+							<div class="6u">
+								
+							</div>
+							<div class="6u">
+								<section>
+									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet 
+									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur 
+									leo nibh, rutrum eu malesuada.</p>
+									<div class="row">
+										<ul class="icons 6u">
+											<li class="fa fa-home">
+												1234 Somewhere Road<br />
+												Nashville, TN 00000<br />
+												USA
+											</li>
+											<li class="fa fa-phone">
+												(000) 000-0000
+											</li>
+											<li class="fa fa-envelope">
+												<a href="#">info@untitled.tld</a>
+											</li>
+										</ul>
+										<ul class="icons 6u">
+											<li class="fa fa-twitter">
+												<a href="http://twitter.com/n33co">@untitled-tld</a>
+											</li>
+											<li class="fa fa-dribbble">
+												<a href="http://dribbble.com/n33">dribbble.com/untitled-tld</a>
+											</li>
+											<li class="fa fa-facebook">
+												<a href="#">facebook.com/untitled-tld</a>
+											</li>
+											<li class="fa fa-google-plus">
+												<a href="#">google.com/+untitled-tld</a>
+											</li>
+										</ul>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright" class="container">
+						<ul class="links">
+							<li>&copy; Untitled. All rights reserved</li>
+							<li>Demo images: <a href="http://regularjane.deviantart.com/">regularjane</a></li>
+							<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+	</body>
+</html>
