@@ -68,18 +68,15 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, '/mainpage/templates'),)
 
 ROOT_URLCONF = 'urls'
 
 
-# List of callables that know how to import templates from various sources.
-# TEMPLATE_LOADERS = (
-#     'django.template.loaders.filesystem.Loader',
-#     'django.template.loaders.app_directories.Loader',
-# #     'django.template.loaders.eggs.Loader',
-# )
-
-TEMPLATE_DIRS = (
-    '/Users/ziweiliu/Desktop/470proj/ParkToGo/mainpage/templates',
+#List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
 )
+

@@ -16,7 +16,7 @@ dbindexer.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'ParkToGo.views.home', name='home'),
-    url(r'^$', include('mainpage.urls', namespace = 'mainpage')),
+    url(r'^parktogo/', include('mainpage.urls', namespace = 'mainpage')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
