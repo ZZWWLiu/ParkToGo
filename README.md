@@ -17,3 +17,10 @@ recommend:
     1. ask user to rate 5 parks (this may change)
     
     2. recommend 3 parks based on user's ratings
+    
+How to run it:
+
+    1. download everything in the core_algorithm
+    
+    2. command-line:
+           $ python recommender.py
