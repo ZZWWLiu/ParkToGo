@@ -58,12 +58,22 @@
     		<div id = 'header'>
     			<div class='title'>Park To Go</div>
     		</div>
-            
-            <div id="map-canvas">MAP<div> 
-                
+            <br>
+            <p>
             {% for park in results %}
-                <div>{{ park }}</div>
+                <p>{{ park.facility }} , {{ park.state }}</p>
+                <br>
+                <p>{{ park.description }}</p>
+                <br>
+                <p>{{ park.importantInformation }}</p>
+                {% for img in park.imgs %}
+                    {% if img %}
+                        <img src= {{img}} >
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
+            </p>
+            <div id="map-canvas">MAP<div> 
 
     	</div>
 
