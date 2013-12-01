@@ -21,7 +21,33 @@
 		<script src="{% static 'mainpage/js/jquery.dropotron.min.js' %}"></script>
 		<script src="{% static 'mainpage/js/config.js' %}"></script>
 		<script src="{% static 'mainpage/js/skel.min.js' %}"></script>
-		<script src="{% static 'mainpage/js/skel-panels.min.js' %}"></script>		
+		<script src="{% static 'mainpage/js/skel-panels.min.js' %}"></script>
+        <!-- Google Maps -->
+        <style type="text/css">
+	      #map-canvas { height: 300px }
+	    </style>
+
+
+		<script type="text/javascript"
+	      src= {{google_maps_src}}>
+	    </script>
+	    <script type="text/javascript">
+	      function initialize() {
+	      	var myLatlng = new google.maps.LatLng( {{latitude}}, {{longitude}});
+	        var mapOptions = {
+	          center: myLatlng,
+	          zoom: 5
+	        };
+	        var map = new google.maps.Map(document.getElementById("map-canvas"),
+	            mapOptions);
+	        var marker = new google.maps.Marker({
+			    position: myLatlng,
+			    map: map,
+			    title: 'Hello World!'
+			  });
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>		
 	</head>
 	<body class="left-sidebar">
 
@@ -34,7 +60,6 @@
 						<!-- Logo -->
 							<h1 id="logo"><a href="#">Park To Go</a></h1>
 							<p>You deserve a great vacation.</p>
-						
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
@@ -124,7 +149,9 @@
 															<header>
 																<h3><a href="#">Something of note</a></h3>
 															</header>
-															<a href="http://regularjane.deviantart.com/art/In-Your-Hands-356733525" class="image image-left"><img src="{% static 'mainpage/images/pic06.jpg' %}" alt="" /></a>
+															<!-- <a href="http://regularjane.deviantart.com/art/In-Your-Hands-356733525" class="image image-left"><img src="{% static 'mainpage/images/pic06.jpg' %}" alt="" /></a> -->
+
+															<div id="map-canvas"/> 
 															<p>Phasellus  sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam 
 															viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis 
 															convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus 

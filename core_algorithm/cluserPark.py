@@ -1,5 +1,4 @@
 import json
-# import tweetcollector
 import cosine
 import os
 import random
@@ -46,7 +45,7 @@ class Cluster():
         #         d["text"] += tweet["text"]
         #     self.documents.append(d)
         print 'start index'
-        print docs[0]
+        # print docs[0]
         # self.documents.extend(docs) #get the copy of docs
         self.searcher.index_tweets(docs)
         # for  self.searcher.vec_docs
@@ -54,7 +53,7 @@ class Cluster():
             dic = {"vector":vector}
             self.documents.append(dic)
             # self.documents[idx]["vector"] = vector
-        print docs[0]
+        # print docs[0]
 
     def euclidean_dist_square(self, doc_a, doc_b): #calculate euclidean distance for two vector a and b
         # doc_a = {'a': 0.xxx, 'aa':1.xx, ...}
