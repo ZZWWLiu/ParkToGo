@@ -95,13 +95,17 @@
         <div class="row half">Which park do you like:</div>
        
         <form action="http://park-to-go.appspot.com/parktogo/submit"><br>
+        <div id="a">
         <input type="radio" name="a" id="1" />
         <label for="1"><img src="{% static 'mainpage/images/pic01.jpg' %}"  width="259" height="194" alt="Submit" /></label>
-        <input type="image" src="{% static 'mainpage/images/pic01.jpg' %}"  width="259" height="194"  alt="Submit">
+        <input type="radio" name="a" id="2" />
+        <label for="2"><img src="{% static 'mainpage/images/pic01.jpg' %}"  width="259" height="194"  alt="Submit">
         <input type="image" src="{% static 'mainpage/images/pic02.jpg' %}"  width="259" height="194"  alt="Submit">
         <input type="image" src="{% static 'mainpage/images/pic03.jpg' %}"  width="259" height="194"  alt="Submit">
         <input type="image" src="{% static 'mainpage/images/pic04.jpg' %}"  width="259" height="194"  alt="Submit">
         <input type="image" src="{% static 'mainpage/images/pic05.jpg' %}"  width="259" height="194"  alt="Submit">
+        
+        </div>     
         </form>
          
     </label>
