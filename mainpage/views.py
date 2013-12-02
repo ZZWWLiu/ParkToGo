@@ -121,7 +121,8 @@ def submit(request):
 		               'lat2': float(res[1]['latitude']),
 		               'lon2': float(res[1]['longitude']),
 		               'lat3': float(res[2]['latitude']),
-		               'lon3': float(res[2]['longitude'])}
+		               'lon3': float(res[2]['longitude'])
+		               }
 			return render(request, 'mainpage/recommend.html', content)
 
 
