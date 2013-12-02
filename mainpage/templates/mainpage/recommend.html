@@ -3,21 +3,85 @@
 <html>
     <head>
         <title>Park To Go</title>
+        <!-- Google Maps -->
+        <style type="text/css">
+          #map-canvas { height: 300px }
+        </style>
+        <script type="text/javascript"
+          src= {{google_maps_src}}>
+        </script>
+        <script type="text/javascript">
+          function initialize() {
+            var myLatlng = new google.maps.LatLng( {{latitude}}, {{longitude}});
+            var LatLng1 = new google.maps.LatLng( {{lat1}}, {{lon1}});
+            var LatLng2 = new google.maps.LatLng( {{lat2}}, {{lon2}});
+            var LatLng3 = new google.maps.LatLng( {{lat3}}, {{lon3}});
+            var mapOptions = {
+              center: myLatlng,
+              zoom: 4
+            };
+            var map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'You are here'
+              });
+            var marker1 = new google.maps.Marker({
+                position: LatLng1,
+                map: map,
+                // title: '1'
+                // icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(1 + 65) + ".png"
+                icon: "http://maps.google.com/mapfiles/markerA.png"
+              });
+            var marker2 = new google.maps.Marker({
+                position: LatLng2,
+                map: map,
+                // title: '2'
+                icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(1 + 65) + ".png"
+              });
+            var marker2 = new google.maps.Marker({
+                position: LatLng3,
+                map: map,
+                // title: '3'
+                icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(2 + 65) + ".png"
+              });
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
     </head>
     <body>
     	<div class = 'content'>
     		<div id = 'header'>
     			<div class='title'>Park To Go</div>
     		</div>
-            <div>facilityID:
-                {{facilityID}}
-            </div>
-            <div>facilityName:
-                {{facilityName}}
-            </div>
-            <div>contractType:
-                {{contractType}}
-            </div>
+            <br>
+            <p>
+            {% for park in results %}
+                <h2>{{ park.facility }} , {{ park.state }}</h2>
+                <h3>Description :</h3>
+                <p>{{ park.description }}</p>
+                <h3>Important Information :</h3>
+                <p>{{ park.importantInformation }}</p>
+                <table >
+                <tbody>
+                    {% for day in park.weather %}
+                    <tr><td>{{day.weather.description}}</td><td>{{day.temp.min}}</td><td>{{day.temp.max}}</td></tr>
+                     {% endfor %}
+                </tbody>
+                </table>
+                <div>
+                </div>
+                {% for img in park.imgs %}
+                    {% if img %}
+                        <img src= {{img}} >
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            </p>
+            <div id="map-canvas">MAP<div> 
+
     	</div>
 
     	<div id='main'>

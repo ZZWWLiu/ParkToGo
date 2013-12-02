@@ -71,12 +71,15 @@ def collectParkDetail(parkIds, filename = 'parkDetails.json'):
 			urlfile.close()
 			dom = minidom.parseString(data)
 			amenities = dom.getElementsByTagName('amenity')
+			detailDescription = dom.getElementsByTagName('detailDescription')
 			amenityList = []
 			for a in amenities:
 				amenityList.append(a.attributes['name'].value)
 			parkDetails['amenity'] = amenityList
+			parkDetails['latitude'] = detailDescription[0].attributes['latitude'].value
+			parkDetails['longitude'] = detailDescription[0].attributes['longitude'].value
 			f.write(json.dumps(parkDetails) + '\n')
-			time.sleep(0.5)
+			time.sleep(1)
 	f.close()
 
 if __name__ == "__main__":

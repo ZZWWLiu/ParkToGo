@@ -1,5 +1,5 @@
 /*
-	Strongly Typed 1.1 by HTML5 UP
+	Verti 2.5 by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,135 +8,156 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
-	body,input,textarea,select
+	body
 	{
-		line-height: 1.65em;
-		font-size: 13pt;
+		min-width: 1200px;
+		line-height: 2.25em;
+		min-height: 100%;
+	}
+
+	h1, h2, h3, h4, h5, h6
+	{
+		color: #444;
+		font-weight: 800;
 	}
 
 	h2
 	{
-		font-size: 1.65em;
-		font-weight: 400;
-		letter-spacing: 4px;
-		margin: 0 0 1.5em 0;
-		line-height: 1.75em;
+		font-size: 2.25em;
+		margin: 0 0 1.1em 0;
+		line-height: 1em;
 	}
-
+	
 	h3
 	{
-		font-size: 1em;
-		letter-spacing: 2px;
-		margin: 0 0 1.25em 0;
+		font-size: 1.35em;
+		margin: 0 0 2.25em 0;
 	}
 
-	/* Tables */
+	.pad-right
+	{
+		margin-right: 1.5em;
+	}
+
+	.pad-left
+	{
+		margin-left: 1.5em;
+	}
 	
-		table
+	body.left-sidebar,
+	body.homepage
+	{
+	}
+
+		body.left-sidebar #content,
+		body.homepage #content
+		{
+			padding-left: 1.75em;
+		}
+
+	body.right-sidebar
+	{
+	}
+
+		body.right-sidebar #content
+		{
+			padding-right: 1.75em;
+		}
+	
+	.button
+	{
+		font-size: 1.35em;
+		padding: 0.8em 1.5em 0.8em 1.5em;
+	}
+
+		.button.big
+		{
+			font-size: 2.25em;
+			padding: 0.8em 0.9em 0.8em 0.9em;
+		}
+
+		.button.fa
 		{
 		}
-		
-			table.style1
+
+			.button.fa:before
 			{
+				margin-right: 0.5em;
+				top: 0.05em;
 			}
-			
-				table.style1 thead
-				{
-					font-size: 0.85em;
-					letter-spacing: 2px;
-				}
-
-	/* Buttons */
+	
+	.box
+	{
+		padding: 2em;
+	}
 		
-		.button
+	.box-feature
+	{
+		padding: 0;
+	}
+		
+		.box-feature .inner
 		{
-			font-size: 0.85em;
-			letter-spacing: 2px;
-			padding: 0.85em 2.75em 0.85em 2.75em;
+			padding: 4em 2em 3em 2em;
 		}
 		
-	/* Lists */
-
-		ul.actions
+		.box-feature h2
 		{
-		}
-		
-			ul.actions li
-			{
-				display: inline-block;
-				margin-left: 1em;
-			}
-			
-			ul.actions li:first-child
-			{
-				margin-left: 0;
-			}
-
-		ul.divided
-		{
+			font-size: 1.35em;
 		}
 
-			ul.divided li
+		.box-feature p
+		{
+			margin: 0;
+		}
+
+		.box-feature .image
+		{
+			position: relative;
+			margin: 0;
+		}
+
+			.box-feature .image img
 			{
-				margin: 2.5em 0 0 0;
-				padding: 2.5em 0 0 0;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
 			}
 
 /*********************************************************************************/
-/* Section/Article Types                                                         */
+/* Widgets                                                                       */
 /*********************************************************************************/
 
-	.is-post
-	{
-	}
-	
-		.no-sidebar .is-post > header
-		{
-			text-align: center;
-		}
-
-	.is-feature
-	{
-	}
-	
-	.is-excerpt
-	{
-	}
-	
-		.is-excerpt .date
-		{
-			display: inline-block;
-			font-size: 0.85em;
-			letter-spacing: 2px;
-			padding: 0.25em 1em 0.25em 1em;
-			margin: 0 0 2.5em 0;
-		}
-	
-	.is-highlight
+	.widget-thumbnails
 	{
 	}
 
+		.widget-thumbnails .grid
+		{
+			margin: 0 0 3em 0;
+		}
+
+		.widget-thumbnails .image
+		{
+			margin: 0;
+		}
+	
 /*********************************************************************************/
 /* Wrappers                                                                      */
 /*********************************************************************************/
 
 	#header-wrapper
 	{
-	}
-
-	#features-wrapper
-	{
-		padding: 6em 0 6em 0;
+		padding: 4.5em 0 1em 0;
 	}
 	
-	#banner-wrapper
+	#features-wrapper
 	{
 		padding: 3em 0 3em 0;
 	}
 	
 	#main-wrapper
 	{
-		padding: 6em 0 6em 0;
+		padding: 5em 0 5em 0;
 	}
 	
 	#footer-wrapper
@@ -145,25 +166,27 @@
 	}
 
 /*********************************************************************************/
-/* Header                                                                        */
+/* Logo                                                                          */
 /*********************************************************************************/
 
-	#header
+	#logo
 	{
-		padding: 14em 0 7em 0;
 	}
-	
-		#header h1
+
+		#logo h1
 		{
-			font-size: 3em;
-			letter-spacing: 13px;
+			float: left;
+			margin: 0 0.35em 0 0;
+			padding: 0.25em 0.2em 0.25em 0.2em;
+			font-size: 3.25em;
+			letter-spacing: 0.05em;
 		}
-		
-		#header p
+
+		#logo span
 		{
-			margin: 2.5em 0 0 0;
-			font-size: 0.85em;
-			letter-spacing: 3px;
+			line-height: 4.5em;
+			letter-spacing: 0.025em;
+			font-size: 0.9em;
 		}
 
 /*********************************************************************************/
@@ -173,208 +196,130 @@
 	#nav
 	{
 		position: absolute;
-		top: 3em;
-		left: 0;
-		width: 100%;
+		right: 0;
+		top: 0;
+		font-size: 0.9em;
 	}
-
-		#nav > ul > li
+	
+		#nav ul
 		{
-			display: inline-block;
-			padding-right: 2em;
 		}
-		
-			#nav > ul > li:last-child
+			
+			#nav ul li
 			{
-				padding-right: 0;
+				float: left;
+				line-height: 4.5em;
+				padding-left: 1.5em;
 			}
 
-			#nav > ul > li > a
-			{
-				display: block;
-			}
-
-				#nav > ul > li > a > span
+				#nav ul li a
 				{
-					font-size: 0.85em;
-					letter-spacing: 3px;
+					font-weight: 800;
+					letter-spacing: 0.025em;
+					color: #696969;
+					text-decoration: none;
+					border-radius: 6px;
+					padding: 0.5em 1em 0.5em 1em;
+					-moz-transition: background-color .25s ease-in-out;
+					-webkit-transition: background-color .25s ease-in-out;
+					-o-transition: background-color .25s ease-in-out;
+					-ms-transition: background-color .25s ease-in-out;
+					transition: background-color .25s ease-in-out;
 				}
 
-			#nav > ul > li > ul
+			#nav ul li:hover
 			{
-				display: none;
-			}
-	
-	.dropotron
-	{
-		text-align: left;
-		border: solid 1px #e5e5e5;
-		border-radius: 4px;
-		background: #fff;
-		background: rgba(255,255,255,0.965);
-		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-		padding: 0.75em 0 0.5em 0;
-		min-width: 12em;
-	}
-	
-		.dropotron.level-0
-		{
-			margin-top: 1.5em;
-			margin-left: -1em;
-		}
-
-			.dropotron.level-0:after
-			{
-				content: '';
-				display: block;
-				position: absolute;
-				left: 1.25em;
-				top: -moz-calc(-0.75em + 1px);
-				top: -webkit-calc(-0.75em + 1px);
-				top: -o-calc(-0.75em + 1px);
-				top: -ms-calc(-0.75em + 1px);
-				top: calc(-0.75em + 1px);
-				border-left: solid 0.75em rgba(255,255,255,0);
-				border-right: solid 0.75em rgba(255,255,255,0);
-				border-bottom: solid 0.75em #fff;
 			}
 
-			.dropotron.level-0:before
+				#nav ul li:hover a
+				{
+					background: rgba(255,255,255,0.5);
+				}
+
+			#nav ul li.current_page_item
 			{
-				content: '';
-				display: block;
-				position: absolute;
-				left: 1.25em;
-				top: -0.75em;
-				border-left: solid 0.75em rgba(255,255,255,0);
-				border-right: solid 0.75em rgba(255,255,255,0);
-				border-bottom: solid 0.75em #ccc;
 			}
 
-		.dropotron span,
-		.dropotron a
-		{
-			display: block;
-			padding: 0.3em 1em 0.3em 1em;
-			border: 0;
-			border-top: solid 1px #f0f0f0;
-			outline: 0;
-		}
+				#nav ul li.current_page_item a
+				{
+					background: #444;
+					color: #fff;
+				}
 
-		.dropotron li:first-child > span,
-		.dropotron li:first-child > a
-		{
-			border-top: 0;
-			padding-top: 0;
-		}
-		
-		.dropotron li:hover > span,
-		.dropotron li:hover > a
-		{
-			color: #ed786a;
-			-moz-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-			-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-			-o-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-			-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-			transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-		}
-
-	
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
-	
+
 	#banner
 	{
-		padding: 10em 0 10em 0;
+		padding: 6.25% 6.25% 3.5% 6.25%;
 	}
-	
+
+		#banner h2
+		{
+			font-size: 3.5em;
+			margin: 0.1em 0 0.35em 0;
+		}
+
 		#banner p
 		{
-			font-size: 2em;
-			line-height: 1.5em;
-			letter-spacing: 4px;
+			font-size: 2.75em;
+			line-height: 1.35em;
+			margin: 0;
 		}
 		
-		#banner:before,
-		#banner:after
+		#banner .button
 		{
-			content: '';
-			display: block;
-			position: absolute;
-			top: 50%;
-			width: 35px;
-			height: 141px;
-			margin-top: -70px;
-			background: url('images/bracket.svg');
-			opacity: 0.15;
+			width: 100%;
+			margin-bottom: 0.5em;
 		}
 		
-		#banner:before
+			#banner .button.fa:before
+			{
+				position: absolute;
+				right: 0.15em;
+				top: 50%;
+				margin-top: -0.5em;
+			}
+
+		#banner .button.alt
 		{
-			left: 0;
+			margin-bottom: 0;
 		}
 		
-		#banner:after
+		#banner ul
 		{
-			right: 0;
-			-moz-transform: scaleX(-1);
-			-webkit-transform: scaleX(-1);
-			-o-transform: scaleX(-1);
-			-ms-transform: scaleX(-1);
-			transform: scaleX(-1);
+			margin-left: 2em;
 		}
-		
+
 /*********************************************************************************/
 /* Content                                                                       */
 /*********************************************************************************/
-	
+
 	#content
 	{
 	}
 
-		#content > section,
-		#content > article
+		#content h3
 		{
-			margin: 5em 0 0 0;
-			padding: 5em 0 0 0;
+			margin-top: 2.25em;
 		}
-		
-		#content > section:first-child,
-		#content > article:first-child
-		{
-			margin: 0;
-			padding: 0;
-		}
-	
+
 /*********************************************************************************/
-/* Sidebar                                                                       */
+/* Footer                                                                        */
 /*********************************************************************************/
-	
-	#sidebar
+
+	#footer
 	{
 	}
-
-		#sidebar > section,
-		#sidebar > article
+	
+		#footer h2
 		{
-			margin: 5em 0 0 0;
-			padding: 5em 0 0 0;
+			font-size: 1.35em;
 		}
-		
-		#sidebar > section:first-child,
-		#sidebar > article:first-child
-		{
-			margin: 0;
-			padding: 0;
-		}
-
-/*********************************************************************************/
-/* Copyright                                                                     */
-/*********************************************************************************/
 
 	#copyright
 	{
-		margin-top: 6em;
-		padding-top: 4em;
+		padding: 4em 0 0 0;
+		text-align: center;
 	}
