@@ -61,7 +61,7 @@ def getLatLong(s):
 
 def getCoord(request, test = False):
 	if test == False:
-		ra = 'HTTP_REMOTE_ADDR'
+		ra = 'REMOTE_ADDR'
 		s = "HTTP_X_AppEngine_CityLatLong"
 		coord = request.META[s.upper()]
 		ip = request.META[ra]
@@ -83,7 +83,7 @@ def getCoord(request, test = False):
 
 def homepage(request):
 	if request.method == 'GET':
-		coord = getCoord(request, test = True)
+		coord = getCoord(request, test = False)
 		lat, lon = getLatLong(coord)
 		API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 		google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
@@ -95,7 +95,7 @@ def homepage(request):
 
 def submit(request):
 	if request.method == 'POST':
-		urlfetch.set_default_fetch_deadline(45)
+		urlfetch.set_default_fetch_deadline(10)
 		form = LocationForm(request.POST)
 		if form.is_valid():
 			user_need = form.cleaned_data

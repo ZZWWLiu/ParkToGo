@@ -147,12 +147,12 @@
 	
 		table
 		{
-			width: 100%;
+			width: 50%;
 		}
 		
 			table.style1
 			{
-				width: 100%;
+				width: 50%;
 			}
 			
 				table.style1 tbody tr
@@ -225,6 +225,12 @@
 		margin-bottom: 0;
 	}
 
+    .weather
+    {
+    	display: block;
+    	width: 100%;
+    	float: right;
+    }
 	.image
 	{
 		display: inline-block;

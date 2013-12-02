@@ -1,5 +1,6 @@
 {% extends 'mainpage/result_dis.html' %}
 
+{% load staticfiles %}
     {% block GoogleMaps %}
     <!-- Google Maps -->
     <style type="text/css">
@@ -53,24 +54,32 @@
     {% block results %}
         <p>
         {% for park in results %}
+        <div>
             <h2>{{ park.facility }} , {{ park.state }}</h2>
             <h3>Description :</h3>
             <p>{{ park.description }}</p>
-            <h3>Important Information :</h3>
+            <h3>Important Information : </h3>
             <p>{{ park.importantInformation }}</p>
-            <table >
-            <tbody>
-                {% for day in park.weather %}
-                <tr><td>{{day.weather.description}}</td><td>{{day.temp.min}}</td><td>{{day.temp.max}}</td></tr>
-                 {% endfor %}
-            </tbody>
-            </table>
-            <div>
+            <div class='weather'>
+                <table class ='style1' border='1'>
+                    <tbody>
+                        <thead>Weather</thead>
+                        <tr><td>Description</td><td>Min</td><td>Max</td></tr>
+                        {% for day in park.weather %}
+                        <tr><td>{{day.weather.description}}</td><td>{{day.temp.min}}</td><td>{{day.temp.max}}</td></tr>
+                         {% endfor %}
+                    </tbody>
+                </table>
             </div>
+            <div>     
             {% for img in park.imgs %}
                 {% if img %}
                     <img src= {{img}} >
                 {% endif %}
             {% endfor %}
+            </div>
+            <br>
+        </div>
         {% endfor %}
+        <div id="map-canvas">MAP<div> 
     {% endblock %}
