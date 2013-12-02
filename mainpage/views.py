@@ -83,7 +83,7 @@ def getCoord(request, test = False):
 
 def homepage(request):
 	if request.method == 'GET':
-		coord = getCoord(request, test = False)
+		coord = getCoord(request, test = True)
 		lat, lon = getLatLong(coord)
 		API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 		google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
