@@ -8,3 +8,6 @@ class UserParkForm(forms.Form):
     siteType = forms.CharField(max_length=10)
     state = forms.CharField(max_length=10)
 
+
+class LocationForm(forms.Form):
+	coordinates = forms.CharField(max_length=20)

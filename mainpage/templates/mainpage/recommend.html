@@ -7,8 +7,6 @@
         <style type="text/css">
           #map-canvas { height: 300px }
         </style>
-
-
         <script type="text/javascript"
           src= {{google_maps_src}}>
         </script>
@@ -62,9 +60,7 @@
             <p>
             {% for park in results %}
                 <p>{{ park.facility }} , {{ park.state }}</p>
-                <br>
                 <p>{{ park.description }}</p>
-                <br>
                 <p>{{ park.importantInformation }}</p>
                 {% for img in park.imgs %}
                     {% if img %}
