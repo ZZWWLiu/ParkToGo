@@ -1,6 +1,6 @@
 {% extends 'mainpage/index.html' %}
    
-
+{% load staticfiles %}
    {% block form %}
     <!-- <label>
         <div class="row half">What You Want To Do:</div>
@@ -21,12 +21,12 @@
         <option value="2002">Trailer</option>
         </select>   
     </label> -->
-    <!-- <label>
+    <label>
         <div class="row half">Weather Condition:</div>
-        <input type="radio" name = 'weather' value= 'sunny'>Sunny
+        <input type="radio" name = 'weather' value= 'sunny'><img src="{% static 'mainpage/images/pic04.jpg' %}" alt="" />
         <input type="radio" name = 'weather' value= 'rainly'>Rainly
         <input type="radio" name = 'weather' value= 'cloudly'>Cloudly
-    </label> -->
+    </label>
 
 <!--     <label>
         <div class="row half">Location</div>
