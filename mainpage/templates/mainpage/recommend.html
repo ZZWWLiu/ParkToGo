@@ -59,9 +59,20 @@
             <br>
             <p>
             {% for park in results %}
-                <p>{{ park.facility }} , {{ park.state }}</p>
+                <h2>{{ park.facility }} , {{ park.state }}</h2>
+                <h3>Description :</h3>
                 <p>{{ park.description }}</p>
+                <h3>Important Information :</h3>
                 <p>{{ park.importantInformation }}</p>
+                <table >
+                <tbody>
+                    {% for day in park.weather %}
+                    <tr><td>{{day.weather.description}}</td><td>{{day.temp.min}}</td><td>{{day.temp.max}}</td></tr>
+                     {% endfor %}
+                </tbody>
+                </table>
+                <div>
+                </div>
                 {% for img in park.imgs %}
                     {% if img %}
                         <img src= {{img}} >

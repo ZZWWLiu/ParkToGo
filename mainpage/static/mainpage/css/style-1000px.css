@@ -1,5 +1,5 @@
 /*
-	Strongly Typed 1.1 by HTML5 UP
+	Verti 2.5 by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -11,51 +11,42 @@
 	body
 	{
 		line-height: 1.75em;
-		font-size: 12pt;
+		font-size: 10.75pt;
+		min-width: 960px;
 	}
 
-	h2
+	ul.style2
 	{
-		margin: 0 0 1em 0;
 	}
-
-	h3
-	{
-		margin: 0 0 1em 0;
-	}
-
-	h2 br, h3 br, h4 br, h5 br, h6 br
-	{
-		display: none;
-	}
-
-	/* Images */
-
-		.image
+	
+		ul.style2 li
 		{
+			line-height: 2.25em;
 		}
 
-			.image-full
-			{
-				margin: 0 0 2.5em 0;
-			}
-			
+	.button
+	{
+		padding: 1em 1.5em 1em 1.5em;
+	}
+
+		.button.big
+		{
+			font-size: 2.25em;
+			padding: 0.85em 1em 0.85em 1em;
+		}
+
 /*********************************************************************************/
 /* Wrappers                                                                      */
 /*********************************************************************************/
 
 	#header-wrapper
 	{
-	}
-
-	#features-wrapper
-	{
-		padding: 4em 0 4em 0;
+		padding: 2em 0 0 0;
 	}
 	
-	#banner-wrapper
+	#features-wrapper
 	{
-		padding: 2em 0 2em 0;
+		padding: 1.75em 0 1.75em 0;
 	}
 	
 	#main-wrapper
@@ -69,52 +60,42 @@
 	}
 
 /*********************************************************************************/
-/* Header                                                                        */
+/* Logo                                                                          */
 /*********************************************************************************/
 
-	#header
-	{
-		padding: 12em 0 7em 0;
-	}
-
-		#header h1
-		{
-			font-size: 2.5em;
-		}
-		
-		#header p
-		{
-			margin: 2em 0 0 0;
-		}
-
-/*********************************************************************************/
-/* Nav                                                                           */
-/*********************************************************************************/
-
-	#nav
+	#logo
 	{
 	}
 
-		#nav > ul > li
+		#logo h1
 		{
-			padding-right: 1.25em;
+			margin-top: 0.15em;
 		}
 
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
-	
+
 	#banner
 	{
-		padding: 7em 0 7em 0;
 	}
+
+		#banner h2
+		{
+			font-size: 3.4em;
+			margin: 0.2em 0 0.5em 0;
+		}
+
+		#banner p
+		{
+			font-size: 2.25em;
+		}
 		
 /*********************************************************************************/
-/* Copyright                                                                     */
+/* Footer                                                                        */
 /*********************************************************************************/
 
 	#copyright
 	{
-		margin-top: 5em;
-		padding-top: 2em;
+		padding: 2em 0 0 0;
 	}

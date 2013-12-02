@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import json, urllib, urllib2, socket
+from google.appengine.api import urlfetch
 import re
 
 
@@ -34,11 +35,15 @@ class IPInfo() :
         urldata = urllib.urlencode(passdict)
         # print urldata
         url = baseurl + urldata
-        urlobj = urllib2.urlopen(url)
-        data = urlobj.read()
-        urlobj.close()
-        datadict = json.loads(data)
-        return datadict
+        # urlobj = urllib2.urlopen(url)
+        # urlobj = urlfetch.fetch(url)
+        urlobj = urlfetch.fetch(url, payload=None, method='GET', headers={}, allow_truncated=False, follow_redirects=True, deadline=20, validate_certificate=False)
+        if urlobj.status_code == 200:
+            data = urlobj.content
+            datadict = json.loads(data)
+            return datadict
+        else:
+            return None
 
     def GetCity(self, ip=None, timezone=False) :
         """Gets the location with the context of the city of the given IP.  

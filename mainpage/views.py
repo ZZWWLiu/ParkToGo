@@ -6,7 +6,7 @@ from xml.dom import minidom
 import logging
 import time
 import json
-from core_algorithm import recommender, pyipinfodb
+from core_algorithm import recommender, pyipinfodb, weather
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 
@@ -41,48 +41,55 @@ def getResDetail(res):
 				photoUrls.append(baseUrl+realUrl)
 		detail['imgs'] = photoUrls
 		detail['state'] = r['state']
+		wkey = r['latitude']+r['longitude']
+		weatherList = memcache.get(key)
+		if weatherList is None:
+			weatherList = weather.getWeather(r['latitude'], r['longitude'])
+			memcache.set(key, weatherList)
+			# logging.error(weatherList)
+		detail['weather'] = weatherList
 		resDetail.append(detail)
 		time.sleep(0.6)
 	return resDetail
 
-def weatherForcast(lat, lon):
-	"""OpenWeatherMap API
-	   Input: lat and lon String
-	   Output: dict of weather info
-	"""
-	api_key = '9f282f36bbd552d28d07769dcb3e7019'
-	query = '&lat='+lat+'&lon='+lon+'&APPID='+api_key
-	Url = 'http://api.openweathermap.org/data/2.5/forecast/daily?cnt=10&mode=json'+query
-	urlfile = urllib2.urlopen(Url)
-	data = urlfile.read()
-	urlfile.close()
-	# parse the json
-	datadict = json.loads(data)
-	return datadict
+# helper function
+def getLatLong(s):
+	coord = s.split(',')
+	lat = float(coord[0])
+	lon = float(coord[1])
+	return (lat, lon)
+
+def getCoord(request, test = False):
+	if test == False:
+		ra = 'HTTP_REMOTE_ADDR'
+		s = "HTTP_X_AppEngine_CityLatLong"
+		coord = request.META[s.upper()]
+		ip = request.META[ra]
+		logging.error(ip)
+		logging.error(coord)
+	else:
+		ip_api_key = '97f4d203b989b3fe87045b255e7a29d42f403cafc8726c45172079dbaa60fbfe'
+		ipinfo = pyipinfodb.IPInfo(ip_api_key)
+		ip = '165.91.11.22'
+		coord = memcache.get(ip)
+		if coord is None:
+			dataDict = ipinfo.GetCity(ip = ip)
+			coord = dataDict["latitude"] +', '+dataDict["longitude"]
+			memcache.set(ip, coord)
+			logging.error(coord)
+	memcache.set('ip', ip)
+	return coord
 
 
 def homepage(request):
 	if request.method == 'GET':
-		urlfetch.set_default_fetch_deadline(45)
-		ip_api_key = '97f4d203b989b3fe87045b255e7a29d42f403cafc8726c45172079dbaa60fbfe'
-		ipinfo = pyipinfodb.IPInfo(ip_api_key)
-		# ip = ipinfo.GetPublicIp()
-		ip = '165.91.11.22'
-		memcache.set('ip', ip)
-		# logging.error(ip)
-		# use clients' public ip address to find their locations
-		dataDict = memcache.get(ip)
-		if dataDict is None:
-			dataDict = ipinfo.GetCity(ip = ip)
-			memcache.set(ip, dataDict)
-		lat = dataDict["latitude"]
-		lon = dataDict["longitude"]
-		logging.error(dataDict)
+		coord = getCoord(request, test = True)
+		lat, lon = getLatLong(coord)
 		API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 		google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
 		content = {'google_maps_src': google_maps ,
-		           'latitude' : float(lat),
-		           'longitude' : float(lon)
+		           'latitude' : lat,
+		           'longitude' : lon
 		           }
 		return render(request, 'mainpage/userform.html', content)
 
@@ -94,14 +101,13 @@ def submit(request):
 			user_need = form.cleaned_data
 			ip = memcache.get('ip')
 			# logging.error(ip)
-			if user_need['coordinates'] is None:
-				dataDict = memcache.get(ip)
-				lat = float(dataDict["latitude"])
-				lon = float(dataDict["longitude"])
+			if user_need['coordinates'] == 'current':
+				coord = memcache.get(ip)
+				lat, lon = getLatLong(coord)
+				logging.error('default coord')
+				logging.error(coord)
 			else:
-				coord = user_need['coordinates'].split(',')
-				lat = float(coord[0])
-				lon = float(coord[1])
+				lat, lon = getLatLong(user_need['coordinates'])
 			res = recommender.recommend(0, lat, lon)
 			resDetail = getResDetail(res)
 			API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
