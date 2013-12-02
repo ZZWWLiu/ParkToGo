@@ -17,6 +17,7 @@
 		<meta name="keywords" content="" />
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Oleo+Script:400" rel="stylesheet" type="text/css" />
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 		<script src="{% static 'mainpage/js/jquery.min.js' %}"></script>
 		<script src="{% static 'mainpage/js/jquery.dropotron.min.js' %}"></script>
 		<script src="{% static 'mainpage/js/config.js' %}"></script>
@@ -63,20 +64,9 @@
 								
 									<!-- Logo -->
 										<div id="logo">
-											<h1><a href="#" id="logo">Park To Go</a></h1>
+											<h1><a href="/parktogo" id="logo">Park To Go</a></h1>
 											
-										</div>
-									
-									<!-- Nav -->
-										<nav id="nav">
-											<ul>
-												<li class="current_page_item"><a href="index.html">Welcome</a></li>
-												<li><a href="left-sidebar.html">Left Sidebar</a></li>
-												<li><a href="right-sidebar.html">Right Sidebar</a></li>
-												<li><a href="no-sidebar.html">No Sidebar</a></li>
-											</ul>
-										</nav>
-								
+										</div>		
 								</header>
 
 						</div>
@@ -96,14 +86,23 @@
 									<div>
 										<div class="row">
 											<div class="7u">
-												<h2>Hi. This is Verti.</h2>
-												<p>It's a free responsive HTML5 site template by HTML5 UP</p>
+												<h2>Hi. This is ParkToGo.</h2>
+												<p>We recommend parks to You</p>
 											</div>
 											<div class="5u">
-												<ul>
+												<!-- Forms -->
+							
+												<section>
+													<form method = 'post' action="/parktogo/submit">{% csrf_token %}
+														{% block form %}
+														
+														{% endblock %}
+													</form>
+												</section>
+												<!-- <ul>
 													<li><a href="#" class="button big fa fa-arrow-circle-right">Ok let's go</a></li>
 													<li><a href="#" class="button alt big fa fa-question-circle">More info</a></li>
-												</ul>
+												</ul> -->
 											</div>
 										</div>
 									</div>
@@ -192,15 +191,7 @@
 										</div>
 									</section>
 
-									<!-- Forms -->
-							
-									<section>
-										<form method = 'post' action="/parktogo/submit">{% csrf_token %}
-											{% block form %}
-											
-											{% endblock %}
-										</form>
-									</section>
+									
 								</div>
 						
 						</div>
@@ -209,7 +200,7 @@
 							<!-- Content -->
 								<div id="content">
 									<section class="last">
-										<h2>So what's this all about?</h2>
+										<h2>Your Location</h2>
 										<div id="map-canvas"/> 
 									</section>
 								</div>
@@ -239,42 +230,11 @@
 						
 						</div>
 						<div class="3u">
-						
-							<!-- Links -->
-								<section class="widget-links">
-									<h2>Random Stuff</h2>
-									<ul class="style2">
-										<li><a href="#">Etiam feugiat condimentum</a></li>
-										<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-										<li><a href="#">Sed porttitor cras in erat nec</a></li>
-										<li><a href="#">Felis varius pellentesque potenti</a></li>
-										<li><a href="#">Nullam scelerisque blandit leo</a></li>
-									</ul>
-								</section>
-						
-						</div>
-						<div class="3u">
-						
-							<!-- Links -->
-								<section class="widget-links">
-									<h2>Random Stuff</h2>
-									<ul class="style2">
-										<li><a href="#">Etiam feugiat condimentum</a></li>
-										<li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-										<li><a href="#">Sed porttitor cras in erat nec</a></li>
-										<li><a href="#">Felis varius pellentesque potenti</a></li>
-										<li><a href="#">Nullam scelerisque blandit leo</a></li>
-									</ul>
-								</section>
-						
-						</div>
-						<div class="3u">
-						
 							<!-- Contact -->
 								<section class="widget-contact last">
 									<h2>Contact Us</h2>
 									<ul>
-										<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+										<li><a href="#" class="fa fa-github solo"><span>Twitter</span></a></li>
 										<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
 										<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
 										<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
