@@ -1,5 +1,4 @@
 import json
-# import urllib2
 from google.appengine.api import urlfetch
 
 def weatherForcast(lat, lon):
