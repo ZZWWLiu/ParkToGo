@@ -225,12 +225,12 @@
 		margin-bottom: 0;
 	}
 
-    .weather
+    /*.weather
     {
     	display: block;
-    	width: 100%;
+    	width: 90%;
     	float: right;
-    }
+    }*/
 	.image
 	{
 		display: inline-block;
