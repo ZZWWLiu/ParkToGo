@@ -5,7 +5,6 @@ import urllib2
 from xml.dom import minidom
 import logging
 import time
-
 import json
 from core_algorithm import recommender, pyipinfodb, weather
 from google.appengine.api import memcache
@@ -18,7 +17,6 @@ test = True
 # import hashlib
 # photo url = http://www.reserveamerica.com/webphotos/CO/pid50032/5/180x120.jpg
 # src = http://www.reserveamerica.com + webphoto
-
 # it's better to store all the parks info in database
 def getResDetail(res):
 	key = 'd2rttztqpfhbqjz42buq6duc'
@@ -46,11 +44,12 @@ def getResDetail(res):
 		detail['imgs'] = photoUrls
 		detail['state'] = r['state']
 		wkey = r['latitude']+r['longitude']
-		weatherList = memcache.get(key)
+		weatherList = memcache.get(wkey)
 		if weatherList is None:
 			weatherList = weather.getWeather(r['latitude'], r['longitude'])
-			memcache.set(key, weatherList)
+			memcache.set(wkey, weatherList)
 			logging.error('using weather api')
+		logging.error(weatherList[0])
 		detail['weather'] = weatherList
 		resDetail.append(detail)
 		time.sleep(0.6)
