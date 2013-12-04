@@ -147,12 +147,12 @@
 	
 		table
 		{
-			width: 50%;
+			/*width: 50%;*/
 		}
 		
 			table.style1
 			{
-				width: 50%;
+				/*width: 50%;*/
 			}
 			
 				table.style1 tbody tr
@@ -167,14 +167,14 @@
 			
 				table.style1 td
 				{
-					padding: 0.75em 1em 0.75em 1em;
+					padding: 0.5em 0.75em 0.5em 0.75em;
 				}
 				
 				table.style1 th
 				{
 					text-align: left;
 					font-weight: bold;
-					padding: 0.75em 1em 0.75em 1em;
+					padding: 0.5em 0.75em 0.5em 0.75em;
 				}
 			
 				table.style1 thead
@@ -227,9 +227,25 @@
 
     /*.weather
     {
-    	display: block;
-    	width: 90%;
+    	display: inline;
+    	width: 60%;
     	float: right;
+    }*/
+    .weather
+	{
+		display: inline-block;
+		/*position: relative;*/
+		/*left: 65%;*/
+	}
+	    .weather center
+	    {
+	    	font-size :1.5em;
+	    	font-family: 'Open Sans Condensed', sans-serif;
+	    }
+
+    /*div.result
+    {
+    	display: block;
     }*/
 	.image
 	{
@@ -911,6 +927,7 @@
 			border-radius: 6px;
 			font-family: 'Oleo Script', serif;
 			font-weight: 400;
+
 		}
 		
 		#logo span

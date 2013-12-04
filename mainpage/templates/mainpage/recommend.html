@@ -1,6 +1,7 @@
 {% extends 'mainpage/result_dis.html' %}
 
 {% load staticfiles %}
+{% load app_tag %}
     {% block GoogleMaps %}
     <!-- Google Maps -->
     <style type="text/css">
@@ -51,26 +52,38 @@
     </script>
     {% endblock %}
     
+
+    <!-- recommend results block -->
+
     {% block results %}
-        <p>
         {% for park in results %}
-        <div>
-            <h2>{{ park.facility }} , {{ park.state }}</h2>
-            <h3>Description :</h3>
-            <p>{{ park.description }}</p>
-            <h3>Important Information : </h3>
-            <p>{{ park.importantInformation }}</p>
+        <div id="banner" class="box">
+        <div class='row'>
+            <div class="7u">
+                <h2>{{ park.facility }} , {{ park.state }}</h2>
+                <div>
+                    <h3>Description :</h3>
+                    <article>{{ park.description }}</article>
+                </div>
+                <div>
+                    <h3>Important Information : </h3>
+                    <article>{{ park.importantInformation }}</article>
+                </div>
+            </div>
+            <div class="5u">
             <div class='weather'>
+                <center>Weather</center>
                 <table class ='style1'>
-                    <tbody>
-                        <thead>Weather</thead>
-                        <tr><td>Description</td><td>Min</td><td>Max</td></tr>
+                    <tbody>        
+                        <thead><th>Date</th><th>Description</th><th>Min</th><th>Max</th></thead>
                         {% for day in park.weather %}
-                        <tr><td>{{day.weather.description}}</td><td>{{day.temp.min}}</td><td>{{day.temp.max}}</td></tr>
+                        <tr><th>{{forloop.counter0|getDate}}</th><td>{{day.weather.description}}</td><td>{{day.temp.min|floatformat}}</td><td>{{day.temp.max|floatformat}}</td></tr>
                          {% endfor %}
                     </tbody>
                 </table>
             </div>
+            </div>
+        </div>
             <div>     
             {% for img in park.imgs %}
                 {% if img %}
@@ -79,7 +92,11 @@
             {% endfor %}
             </div>
             <br>
-        </div>
+    </div>
         {% endfor %}
-        <div id="map-canvas">MAP<div> 
+        <div class="12u">
+            <section class="box box-feature">
+                <div id="map-canvas">MAP<div> 
+            </section>
+        </div>
     {% endblock %}

@@ -5,11 +5,15 @@ import urllib2
 from xml.dom import minidom
 import logging
 import time
+
 import json
 from core_algorithm import recommender, pyipinfodb, weather
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 
+
+
+test = True
 # import re
 # import hashlib
 # photo url = http://www.reserveamerica.com/webphotos/CO/pid50032/5/180x120.jpg
@@ -46,7 +50,7 @@ def getResDetail(res):
 		if weatherList is None:
 			weatherList = weather.getWeather(r['latitude'], r['longitude'])
 			memcache.set(key, weatherList)
-			# logging.error(weatherList)
+			logging.error('using weather api')
 		detail['weather'] = weatherList
 		resDetail.append(detail)
 		time.sleep(0.6)
@@ -83,7 +87,7 @@ def getCoord(request, test = False):
 
 def homepage(request):
 	if request.method == 'GET':
-		coord = getCoord(request, test = True)
+		coord = getCoord(request, test = test)
 		lat, lon = getLatLong(coord)
 		API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 		google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
