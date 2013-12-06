@@ -60,7 +60,9 @@
         <div id="banner" class="box">
         <div class='row'>
             <div class="7u">
-                <h2><i class=""btn btn-danger"">{{ forloop.counter0|add:"65"|stringformat:"c" }}</i> {{ park.facility }} , {{ park.state }}</h2>
+                <span id='index'>
+                    <i class='fa fa-map-marker'> {{ forloop.counter0|add:"65"|stringformat:"c" }}</i><center>{{ park.facility }} , {{ park.state }}</center>
+                </span>
                 <div>
                     <h3>Description :</h3>
                     <article>{{ park.description }}</article>
