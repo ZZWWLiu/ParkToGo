@@ -9,12 +9,7 @@ import json
 from core_algorithm import recommender, pyipinfodb, weather
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
-
-# find a way to get national parks data
-# http://us-national-parks.findthedata.org/l/16/North-Cascades-National-Park
-# http://us-national-parks.findthedata.org/l/59/Acadia-National-Park
-# crawl 1-59 
-
+# set test to False when deploy
 test = True
 # import re
 # import hashlib
