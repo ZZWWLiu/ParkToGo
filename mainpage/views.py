@@ -110,11 +110,14 @@ def submit(request):
 				logging.error(coord)
 			else:
 				lat, lon = getLatLong(user_need['coordinates'])
-			res = recommender.recommend(0, lat, lon)
+			class_id = 1
+			res = recommender.recommend(class_id, lat, lon)
+			resN = recommender.recommendN(class_id, lat, lon)
 			resDetail = getResDetail(res)
 			API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 			google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
 			content = {'results': resDetail,
+			           'Nresult': resN,
 					   'google_maps_src': google_maps ,
 		               'latitude' : lat,
 		               'longitude' : lon,
