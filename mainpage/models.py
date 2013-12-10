@@ -12,5 +12,6 @@ class UserParkForm(forms.Form):
 
 class LocationForm(forms.Form):
 	coordinates = forms.CharField(max_length=20)
+	parktype    = forms.CharField(max_length=5)
 
 

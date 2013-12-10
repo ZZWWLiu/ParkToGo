@@ -13,6 +13,7 @@
     <script type="text/javascript">
       function initialize() {
         var myLatlng = new google.maps.LatLng( {{latitude}}, {{longitude}});
+        var LatLng0 = new google.maps.LatLng( {{lat0}}, {{lon0}});
         var LatLng1 = new google.maps.LatLng( {{lat1}}, {{lon1}});
         var LatLng2 = new google.maps.LatLng( {{lat2}}, {{lon2}});
         var LatLng3 = new google.maps.LatLng( {{lat3}}, {{lon3}});
@@ -28,24 +29,32 @@
             map: map,
             title: 'You are here'
           });
-        var marker1 = new google.maps.Marker({
-            position: LatLng1,
+
+        var marker0 = new google.maps.Marker({
+            position: LatLng0,
             map: map,
             // title: '1'
             // icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(1 + 65) + ".png"
             icon: "http://maps.google.com/mapfiles/markerA.png"
           });
+        var marker1 = new google.maps.Marker({
+            position: LatLng1,
+            map: map,
+            // title: '1'
+            // icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(1 + 65) + ".png"
+            icon: "http://maps.google.com/mapfiles/markerB.png"
+          });
         var marker2 = new google.maps.Marker({
             position: LatLng2,
             map: map,
             // title: '2'
-            icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(1 + 65) + ".png"
+            icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(2 + 65) + ".png"
           });
         var marker2 = new google.maps.Marker({
             position: LatLng3,
             map: map,
             // title: '3'
-            icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(2 + 65) + ".png"
+            icon: "http://maps.google.com/mapfiles/marker" + String.fromCharCode(3 + 65) + ".png"
           });
       }
       google.maps.event.addDomListener(window, 'load', initialize);
@@ -56,51 +65,97 @@
     <!-- recommend results block -->
 
     {% block results %}
+        <div id="banner" class="box">
+            <div class='row'>
+                <div class="7u">
+                    <span id='indexN'>
+                        <i class='fa fa-map-marker'> A</i><center>{{Nresult.facility}}</center>
+                    </span>
+                    <div>
+                        <h3>Description :</h3>
+                        <article>{{ Nresult.description }}</article>
+                    </div>
+
+                </div>
+                <div class="5u">
+                <div class='weather'>
+                    <center>Weather</center>
+                    <table class ='style1'>
+                        <tbody>        
+                            <thead><th>Date</th><th>Description</th><th>Min</th><th>Max</th></thead>
+                            {% for day in Nresult.weather %}
+                            <tr><th>{{forloop.counter0|getDate}}</th><td><img src="http://openweathermap.org/img/w/{{day.weather.icon}}" height="30" width="30">{{day.weather.description}}</td><td>{{day.temp.min|floatformat}}</td><td>{{day.temp.max|floatformat}}</td></tr>
+                             {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                 <section>    
+                    {% for img in Nresult.img %}
+                        {% if img %}
+                        <span class="image"> 
+                            <img src= {{img}}  height="140" width="140">
+                        </span>
+                        {% endif %}
+                    {% endfor %}
+                </section>
+                </div>
+                <br>
+        </div>
+
         {% for park in results %}
         <div id="banner" class="box">
-        <div class='row'>
-            <div class="7u">
-                <span id='index'>
-                    <i class='fa fa-map-marker'> {{ forloop.counter0|add:"65"|stringformat:"c" }}</i><center>{{ park.facility }} , {{ park.state }}</center>
-                </span>
-                <div>
-                    <h3>Description :</h3>
-                    <article>{{ park.description }}</article>
+            <div class='row'>
+                <div class="7u">
+                    <span id='index'>
+                        <i class='fa fa-map-marker'> {{ forloop.counter0|add:"66"|stringformat:"c" }}</i><center>{{ park.facility }} , {{ park.state }}</center>
+                    </span>
+                    <div>
+                        <h3>Description :</h3>
+                        <article>{{ park.description }}</article>
+                    </div>
+                    <div>
+                        <h3>Important Information : </h3>
+                        <article>{{ park.importantInformation }}</article>
+                    </div>
                 </div>
-                <div>
-                    <h3>Important Information : </h3>
-                    <article>{{ park.importantInformation }}</article>
+                <div class="5u">
+                <div class='weather'>
+                    <center>Weather</center>
+                    <table class ='style1'>
+                        <tbody>        
+                            <thead><th>Date</th><th>Description</th><th>Min</th><th>Max</th></thead>
+                            {% for day in park.weather %}
+                            <tr><th>{{forloop.counter0|getDate}}</th><td><img src="http://openweathermap.org/img/w/{{day.weather.icon}}" height="30" width="30">{{day.weather.description}}</td><td>{{day.temp.min|floatformat}}</td><td>{{day.temp.max|floatformat}}</td></tr>
+                             {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
                 </div>
             </div>
-            <div class="5u">
-            <div class='weather'>
-                <center>Weather</center>
-                <table class ='style1'>
-                    <tbody>        
-                        <thead><th>Date</th><th>Description</th><th>Min</th><th>Max</th></thead>
-                        {% for day in park.weather %}
-                        <tr><th>{{forloop.counter0|getDate}}</th><td><img src="http://openweathermap.org/img/w/{{day.weather.icon}}" height="30" width="30">{{day.weather.description}}</td><td>{{day.temp.min|floatformat}}</td><td>{{day.temp.max|floatformat}}</td></tr>
-                         {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            </div>
-        </div>
-        <br>
+            <br>
             <div>
                  <section>    
                     {% for img in park.imgs %}
+                        {% if forloop.counter < 4 %}
                         {% if img %}
                         <span class="image"> 
-                            <img src= {{img}} >
+                            <img src= {{img}} height="140" width="140">
                         </span>
+                        {% endif %}
                         {% endif %}
                     {% endfor %}
                 </section>
             </div>
             <br>
-    </div>
+        </div>
         {% endfor %}
+
+        <!-- google maps -->
+
         <div class="12u">
             <section class="box box-feature">
                 <div id="map-canvas">MAP<div> 

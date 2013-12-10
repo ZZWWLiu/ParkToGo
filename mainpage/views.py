@@ -110,9 +110,11 @@ def submit(request):
 				logging.error(coord)
 			else:
 				lat, lon = getLatLong(user_need['coordinates'])
-			class_id = 1
+			class_id = int(user_need['parktype'])
 			res = recommender.recommend(class_id, lat, lon)
 			resN = recommender.recommendN(class_id, lat, lon)
+			NweatherList = weather.getWeather(str(resN['coords']['lat']), str(resN['coords']['lon']))
+			resN['weather'] = NweatherList
 			resDetail = getResDetail(res)
 			API_KEY = 'AIzaSyAnEt9j1iiUDG6X2cRxQ2GUfotwoe4vCCY'
 			google_maps = "https://maps.googleapis.com/maps/api/js?key="+API_KEY+"&sensor=false"
@@ -121,6 +123,8 @@ def submit(request):
 					   'google_maps_src': google_maps ,
 		               'latitude' : lat,
 		               'longitude' : lon,
+		               'lat0': float(resN['coords']['lat']),
+		               'lon0': float(resN['coords']['lon']),
 		               'lat1': float(res[0]['latitude']),
 		               'lon1': float(res[0]['longitude']),
 		               'lat2': float(res[1]['latitude']),

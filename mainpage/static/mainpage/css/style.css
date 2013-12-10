@@ -245,9 +245,31 @@
 			padding: inherit;
 			display: inline;
 			position: relative;
-			left: 15%;
+			left: 5%;
 	    }
 
+    #indexN
+    {
+		font-family: 'FontAwesome';
+		font-size: inherit;
+		border-radius: 8px;
+		background-color: #F57A0A;
+		padding: 10px;
+		width: 100%;
+		display: inline-block;
+	}
+	    #indexN center
+	    {
+	    	text-align: center;
+	    	width: inherit;
+	    	font-size: inherit;
+			border-radius: inherit;
+			background-color: inherit;
+			padding: inherit;
+			display: inline;
+			position: relative;
+			left: 5%;
+	    }
     .today
     {
     	float: right;
@@ -273,7 +295,7 @@
 		.image img
 		{
 			display: block;
-			width: 100%;
+			/*width: 100%;*/
 			border-radius: 8px;
 		}
 

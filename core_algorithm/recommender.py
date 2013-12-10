@@ -47,7 +47,7 @@ def recommend(class_id, latitude, longitude, num = 3):
 	data = read_data(os.path.join(module_dir,'classifiedParks.json'))
 
 	# logging.error(len(data))
-	parks = data[class_id][str(class_id)]
+	parks = data[class_id]
 	# print parks
 	distances = [calDistance(latitude, longitude, p ) for p in parks]
 	# distances = [calDistance(latitude, longitude, float(p['latitude']), float(p['longitude']) for p in parks]
@@ -62,8 +62,8 @@ def recommend(class_id, latitude, longitude, num = 3):
 def calDistanceN(la1, lo1, p):
 	MAX_DIST = 99999
 	R = 6371
-	# print p['latitude']
-	if p['latitude'] != "":
+	# print p
+	if p['coords']:
 		la2 = float(p['coords']['lat'])
 		lo2 = float(p['coords']['lon'])
 		dLat = rad(la1 - la2)
@@ -92,20 +92,22 @@ def recommendN(class_id, latitude, longitude):
     classes.append(class3)
     classes.append(class4)
     classes.append(class5)
-
     module_dir = os.path.dirname(__file__)  # get current directory
-	# file_path = os.path.join(module_dir, 'baz.txt')
-	Ndata = read_data(os.path.join(module_dir,'NparkDetails.json'))
-	Nparks = [Ndata[i] for i in classes[int(class_id)]]
-	distances = [calDistanceN(latitude, longitude, p ) for p in Nparks]
-	idx = distances.index(min(distances))
-	return Nparks[idx]
+    Ndata = read_data(os.path.join(module_dir,'NparkDetails.json'))
+    Nparks = [Ndata[i] for i in classes[int(class_id)]]
+    # print len(Nparks)
+    # print Nparks
+    distances = [calDistanceN(latitude, longitude, p ) for p in Nparks]
+    idx = distances.index(min(distances))
+    return Nparks[idx]
 
 
 
 if __name__ == "__main__":
 	res = recommend(2, 38.65, 43.1141667)
-	print res
+	# print res
+	res1 = recommendN(1, 38.65, -113.1141667)
+	print res1
 	
 
 
