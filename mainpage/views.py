@@ -65,10 +65,10 @@ def getCoord(request, test = False):
 	if test == False:
 		ra = 'REMOTE_ADDR'
 		s = "HTTP_X_AppEngine_CityLatLong"
+		# HTTP_X_APPENGINE_CITYLATLONG
 		coord = request.META[s.upper()]
 		ip = request.META[ra]
-		logging.error(ip)
-		logging.error(coord)
+		memcache.set(ip, coord)
 	else:
 		ip_api_key = '97f4d203b989b3fe87045b255e7a29d42f403cafc8726c45172079dbaa60fbfe'
 		ipinfo = pyipinfodb.IPInfo(ip_api_key)
@@ -79,7 +79,7 @@ def getCoord(request, test = False):
 			coord = dataDict["latitude"] +', '+dataDict["longitude"]
 			memcache.set(ip, coord)
 			logging.error(coord)
-	memcache.set('ip', ip)
+		memcache.set('ip', ip)
 	return coord
 
 
@@ -101,7 +101,11 @@ def submit(request):
 		form = LocationForm(request.POST)
 		if form.is_valid():
 			user_need = form.cleaned_data
-			ip = memcache.get('ip')
+			if test == False:
+				ra = 'REMOTE_ADDR'
+				ip = request.META[ra]
+			else:
+				ip = memcache.get('ip')
 			# logging.error(ip)
 			if user_need['coordinates'] == 'current':
 				coord = memcache.get(ip)

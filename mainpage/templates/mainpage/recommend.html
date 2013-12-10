@@ -96,8 +96,8 @@
                  <section>    
                     {% for img in Nresult.img %}
                         {% if img %}
-                        <span class="image"> 
-                            <img src= {{img}}  height="140" width="140">
+                        <span class="res"> 
+                            <img src= {{img}}  height="140" width="180">
                         </span>
                         {% endif %}
                     {% endfor %}
@@ -142,8 +142,8 @@
                     {% for img in park.imgs %}
                         {% if forloop.counter < 4 %}
                         {% if img %}
-                        <span class="image"> 
-                            <img src= {{img}} height="140" width="140">
+                        <span class="res"> 
+                            <img src= {{img}} height="140" width="180">
                         </span>
                         {% endif %}
                         {% endif %}

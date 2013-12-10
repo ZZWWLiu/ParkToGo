@@ -270,6 +270,12 @@
 			position: relative;
 			left: 5%;
 	    }
+	    .res > img
+		{
+			display: block;
+			/*width: 100%;*/
+			border-radius: 8px;
+		}
     .today
     {
     	float: right;
@@ -295,7 +301,7 @@
 		.image img
 		{
 			display: block;
-			/*width: 100%;*/
+			width: 100%;
 			border-radius: 8px;
 		}
 
